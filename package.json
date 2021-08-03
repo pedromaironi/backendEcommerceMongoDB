@@ -31,6 +31,6 @@
   "author": "Pedro Maironi",
   "license": "ISC",
   "engines": {
-    "node": "14"
+    "node": "14.15.4"
   }
 }
