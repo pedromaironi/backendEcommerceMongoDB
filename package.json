@@ -2,7 +2,7 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "description": "Ecommerce for a flutter app",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "anymatch": "^3.1.2",
     "body-parser": "^1.19.0",
@@ -26,7 +26,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "author": "Pedro Maironi",
   "license": "ISC",
