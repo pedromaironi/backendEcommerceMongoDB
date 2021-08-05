@@ -15,4 +15,8 @@ module.exports = (app) => {
 
     // Delete a User with userId
     app.delete('/users/:userId', users.delete);
+
+    app.post('/signIn', users.signIn);
+
+    app.post('signUp', users.signUp);
 }
