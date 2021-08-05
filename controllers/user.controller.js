@@ -6,11 +6,11 @@ const router = express.Router();
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.email) {
-    return res.status(400).send({
-      message: "User email can not be empty",
-    });
-  }
+  // if (!req.body.email) {
+  //   return res.status(400).send({
+  //     message: "User email can not be empty",
+  //   });
+  // }
 
   const user = new User({
     name: req.body.name || "Untitled Username",
