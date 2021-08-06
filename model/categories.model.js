@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Categories = new mongoose.Schema({
+const CategoriesSchema = new mongoose.Schema({
   name: {
     type: String,
     // required: true
@@ -15,4 +15,8 @@ const Categories = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("categories", Categories);
+// Export Categories model
+var Categories = module.exports = mongoose.model('categories', CategoriesSchema);
+module.exports.get = function (callback, limit) {
+    Categories.find(callback).limit(limit);
+}
