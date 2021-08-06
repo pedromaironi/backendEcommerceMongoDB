@@ -48,6 +48,7 @@ app.listen(process.env.PORT || 5000, () => {
 
 // Require User routes
 require("./routes/user.routes.js")(app);
+require("./routes/categories.routes.js")(app);
 
 // ........
 
