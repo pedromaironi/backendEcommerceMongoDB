@@ -20,7 +20,7 @@ exports.index = function (req, res) {
 
 // Handle view categories info
 exports.view = function (req, res) {
-    Categories.findById(req.params.categories_id, function (err, categories) {
+    Categories.findById(req.params.categoriesId, function (err, categories) {
         if (err)
             res.send(err);
         res.json({

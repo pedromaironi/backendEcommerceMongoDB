@@ -1,28 +1,31 @@
 // Filename: api-routes.js
 // Initialize express router
-let router = require('express').Router();
+let router = require("express").Router();
 // Set default API response
-router.get('/', function (req, res) {
-    res.json({
-        status: 'API Its Working',
-        message: 'Welcome to Ecommerce app!'
-    });
+router.get("/", function (req, res) {
+  res.json({
+    status: "API Its Working",
+    message: "Welcome to Ecommerce app!",
+  });
 });
 
 // Import Categories controller
-var categoriesController = require('../controllers/categories.controller');
+var categoriesController = require("../controllers/categories.controller");
+var usersController = require("../controllers/user.controller");
 
 // Categories routes
-router.route('/categories')
-    .get(categoriesController.index);
-router.route('/categories/:categories_id')
-    .get(categoriesController.view);
-    // .patch(CategoriesController.update)
-    // .put(CategoriesController.update)
-    // .delete(CategoriesController.delete);
+router.route("/categories").get(categoriesController.index);
+router.route("/categories/:categoriesId").get(categoriesController.view);
 
-// Export API routes
-module.exports = router;
+// Users routes
+router.route("/users").get(usersController.index);
+router.route("/users").post(usersController.new);
+router.route("/users/:usersId").get(usersController.view);
+// .patch(usersController.update)
+// .put(usersController.update)
+// .delete(usersController.delete);
+
+
 
 // Export API routes
 module.exports = router;
