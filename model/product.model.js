@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Products = new mongoose.Schema({
+const productsSchema = new mongoose.Schema({
   name: {
     type: String,
     // required: true
@@ -13,14 +13,15 @@ const Products = new mongoose.Schema({
     type: String,
     // required: true
   },
-  detail: {
-    type: Number,
-    // required: true
-  },
-  stock: {
-    type: Number,
+  price: {
+    type: String,
     // required: true
   },
 });
 
-module.exports = mongoose.model("productos", Products);
+// Export Categories model
+var products = module.exports = mongoose.model("products", productsSchema);
+module.exports.get = function (callback, limit) {
+  products.find(callback).limit(limit);
+}
+

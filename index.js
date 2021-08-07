@@ -1,28 +1,40 @@
-const cors = require("cors");
 // Import express
 const express = require('express');
+
+const cors = require("cors");
+
 // Import Body parser
 const bodyParser = require('body-parser');
+
 // Import Mongoose
 const mongoose = require('mongoose');
+
 // Initialise the app
 const app = express();
+
+// parse requests of content-type - application/json
+app.use(bodyParser.urlencoded({ extended: true }));
+
+require("dotenv/config");
+
+app.use(express.json());
+
+app.use(cors());
+
 // Configuring the database
 const dbConfig = require("./config/database.config.js");
 // Import routes
 const apiRoutes = require("./routes/api-routes.js");
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
-// parse requests of content-type - application/json
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // const User = require("./model/user");
-// require("dotenv/config");
 
 
 // Connecting to the database
