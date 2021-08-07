@@ -20,6 +20,7 @@ router.route("/categories/:categoriesId").get(categoriesController.view);
 // Users routes
 router.route("/users").get(usersController.index);
 router.route("/users").post(usersController.new);
+router.route("/users/signup").post(usersController.signup);
 router.route("/users/:usersId").get(usersController.view)
 .patch(usersController.update)
 .put(usersController.update)

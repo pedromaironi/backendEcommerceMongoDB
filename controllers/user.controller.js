@@ -81,13 +81,6 @@ exports.update = function (req, res) {
 // Handle delete users
 exports.delete = function (req, res) {
   users.findByIdAndDelete(req.params.usersId, function (err, user) {
-    // Validate request
-    // if (!req.body.usersId) {
-    //   return res.status(400).send({
-    //     message: "User id can not be empty",
-    //   });
-    // }
-
     // deleting the users and check for errors
     res.json({
       message: "users deleted",
@@ -95,3 +88,70 @@ exports.delete = function (req, res) {
     });
   });
 };
+
+exports.signup = function (req, res) {
+  // Validate request
+  users.find(req.params.usersId, function (err, user) {
+
+  });
+
+  if (!req.body.email && !req.body.name && !req.body.password) {
+    return res.status(400).send({
+      message: "User can not be empty",
+    });
+  }
+
+  user = new users({
+    name: req.body.name || "Untitled Username",
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  // save the user and check for errors
+  user.save(function (err) {
+    res.json({
+      message: "Welcome to my app!",
+      data: user,
+    });
+  });
+};
+
+exports.signIn = function (req, res) {
+  // Validate request
+  if (!req.body.email && !req.body.password) {
+    return res.status(400).send({
+      message: "User can not be empty",
+    });
+  }
+
+  user = new users({
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  // save the user and check for errors
+  user.save(function (err) {
+    res.json({
+      message: "Welcome to my app!",
+      data: user,
+    });
+  });
+};
+
+// Handling user signup
+// app.post("/register", function (req, res) {
+//   User.register(
+//     new User({ username: username }),
+//     password,
+//     function (err, user) {
+//       if (err) {
+//         console.log(err);
+//         return res.render("register");
+//       }
+
+//       passport.authenticate("local")(req, res, function () {
+//         res.render("secret");
+//       });
+//     }
+//   );
+// });
