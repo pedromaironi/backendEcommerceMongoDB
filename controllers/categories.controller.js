@@ -20,12 +20,12 @@ exports.index = function (req, res) {
 
 // Handle view categories info
 exports.view = function (req, res) {
-    Products.findById(req.params.productsId, function (err, products) {
+    Categories.findById(req.params.categoriesId, function (err, categories) {
         if (err)
             res.send(err);
         res.json({
             message: 'Categories details loading..',
-            data: products
+            data: categories
         });
     });
 };

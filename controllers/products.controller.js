@@ -3,7 +3,7 @@
 Products = require('../model/product.model');
 // Handle index actions
 exports.index = function (req, res) {
-    Categories.get(function (err, categories) {
+    Products.get(function (err, products) {
         if (err) {
             res.json({
                 status: "error",
@@ -13,19 +13,19 @@ exports.index = function (req, res) {
         res.json({
             status: "success",
             message: "Products retrieved successfully",
-            data: categories
+            data: products
         });
     });
 };
 
 // Handle view categories info
 exports.view = function (req, res) {
-    Categories.findById(req.params.categoriesId, function (err, categories) {
+    Products.findById(req.params.productsId, function (err, products) {
         if (err)
             res.send(err);
         res.json({
-            message: 'Categories details loading..',
-            data: categories
+            message: 'Products details loading..',
+            data: products
         });
     });
 };

@@ -19,7 +19,7 @@ router.route("/categories").get(categoriesController.index);
 router.route("/categories/:categoriesId").get(categoriesController.view);
 
 // Categories routes
-router.route("/products").get(categoriesController.index);
+router.route("/products").get(productsController.index);
 router.route("/products/:productsId").get(productsController.view);
 
 // Users routes
