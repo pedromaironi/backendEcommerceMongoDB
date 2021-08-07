@@ -19,7 +19,7 @@ app.use(
 );
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // const User = require("./model/user");
 // require("dotenv/config");

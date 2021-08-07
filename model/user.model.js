@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 // Export User model
-var User = module.exports = mongoose.model('users', UserSchema);
+var users = module.exports = mongoose.model('users', UserSchema);
 module.exports.get = function (callback, limit) {
-    User.find(callback).limit(limit);
+    users.find(callback).limit(limit);
 }

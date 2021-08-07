@@ -1,10 +1,10 @@
 // UserController.js
 // Import User model
-Users = require("../model/user.model");
+users = require("../model/user.model");
 
 // Handle index actions
 exports.index = function (req, res) {
-  Users.get(function (err, users) {
+  users.get(function (err, users) {
     if (err) {
       res.json({
         status: "error a",
@@ -21,18 +21,24 @@ exports.index = function (req, res) {
 
 // Handle create users actions
 exports.new = function (req, res) {
-  var userss = new Users();
-  
-  userss.name = req.body.name;
-  userss.email = req.body.email;
-  userss.password = req.body.password;
+  // Validate request
+  if (!req.body.email && !req.body.name && !req.body.password) {
+    return res.status(400).send({
+      message: "User email can not be empty",
+    });
+  }
+
+  const user = new users({
+    name: req.body.name || "Untitled Username",
+    email: req.body.email,
+    password: req.body.password,
+  });
 
   // save the user and check for errors
-  userss.save(function (err) {
-    if (err) res.send(err);
+  user.save(function (err) {
     res.json({
       message: "New user created!",
-      data: userss,
+      data: user,
     });
   });
 };

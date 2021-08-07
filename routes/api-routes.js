@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
 });
 
 // Import Categories controller
-var categoriesController = require("../controllers/categories.controller");
+var categoriesController = require("../controllers/categories.controller");  
 var usersController = require("../controllers/user.controller");
 
 // Categories routes
