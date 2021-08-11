@@ -19,7 +19,7 @@ exports.index = function (req, res) {
 };
 
 // Handle view products info
-exports.view = (req, res) => {
+exports.view = function (req, res) {
     Products.findById(req.params.productsId, function (err, products) {
         if (err)
             res.send(err);

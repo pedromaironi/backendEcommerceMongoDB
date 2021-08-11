@@ -13,10 +13,6 @@ const productsSchema = new mongoose.Schema({
     type: String,
     // required: true
   },
-  _id: {
-    type: String,
-    // required: true
-  },
   price: {
     type: String,
     // required: true
@@ -28,8 +24,8 @@ const productsSchema = new mongoose.Schema({
 });
 
 // Export Categories model
-var products = module.exports = mongoose.model("products", productsSchema);
+var Products = module.exports = mongoose.model("products", productsSchema);
 module.exports.get = function (callback, limit) {
-  products.find(callback).limit(limit);
+  Products.find(callback).limit(limit);
 }
 
