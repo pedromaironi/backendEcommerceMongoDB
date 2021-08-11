@@ -1,5 +1,5 @@
-// CategoriesController.js
-// Import Categories model
+// ProductsController.js
+// Import products model
 Products = require('../model/product.model');
 // Handle index actions
 exports.index = function (req, res) {
@@ -18,8 +18,8 @@ exports.index = function (req, res) {
     });
 };
 
-// Handle view categories info
-exports.view = function (req, res) {
+// Handle view products info
+exports.view = (req, res) => {
     Products.findById(req.params.productsId, function (err, products) {
         if (err)
             res.send(err);
@@ -28,4 +28,20 @@ exports.view = function (req, res) {
             data: products
         });
     });
+};
+
+// Handle view products info
+exports.search = function (req, res) {
+    // product = new Products({
+    //     name: req.body.name,
+    //   });
+    
+    // Products.find(req.body.name, function (err, products) {
+    //     if (err)
+    //         res.send("a");
+    //     res.json({
+    //         message: 'Products details loading..',
+    //         data: products
+    //     });
+    // });
 };
