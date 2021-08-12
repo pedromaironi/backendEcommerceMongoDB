@@ -13,12 +13,17 @@ router.get("/", function (req, res) {
 var categoriesController = require("../controllers/categories.controller");
 var productsController = require("../controllers/products.controller");
 var usersController = require("../controllers/user.controller");
+var ordersController = require("../controllers/orders.controller");
+
+// Categories routes
+router.route("/orders").get(ordersController.index);
+router.route("/orders/:ordersId").get(ordersController.view);
 
 // Categories routes
 router.route("/categories").get(categoriesController.index);
 router.route("/categories/:categoriesId").get(categoriesController.view);
 
-// Categories routes
+// Products routes
 router.route("/products").get(productsController.index);
 router.route("/products/:productsId").get(productsController.view);
 
