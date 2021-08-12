@@ -17,6 +17,7 @@ var ordersController = require("../controllers/orders.controller");
 
 // Categories routes
 router.route("/orders").get(ordersController.index);
+router.route("/orders").post(ordersController.new);
 router.route("/orders/:ordersId").get(ordersController.view);
 
 // Categories routes
